@@ -22,6 +22,15 @@
             color: #111;
             overflow-x: hidden;
         }
+        ::selection {
+            background: #222;
+            color: #fff;
+        }
+        
+        ::-moz-selection {
+            background: #222;
+            color: #fff;
+        }
         /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
         
@@ -55,6 +64,11 @@
             bottom: 0;
             width: 400px;
             padding: 15px;
+        }
+         .timeline ul li div img,  .timeline ul li div iframe{
+            width:100%;
+            max-width: 400px;
+            height: auto;
         }
         
         .timeline ul li div::before {
@@ -108,6 +122,9 @@
         q:before, q:after {
             content:'';
             content:none;
+        }
+        .title{
+            text-transform: uppercase;
         }
         /* EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -177,14 +194,41 @@
 <body>
     <section class="timeline">
         <ul> 
+            <li class="in-view">
+                    <div>
+                        <time><a href="/">{title}</a></time> {description} </div>
+            </li>
+                
             {block:Posts} 
+            
                 {block:Text} 
-
                 <li class="in-view">
                     <div>
-                        {block:Title}<time>{Title}</time>{/block:Title} {Body} </div>
+                        <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> {block:Title}<span class="title">{Title}</span> <br />{/block:Title}{Body} </div>
                 </li>
                 {/block:Text}
+                
+                {block:Photo} 
+                <li class="in-view">
+                    <div>
+                        <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> <img src="{PhotoURL-400}" alt="{PhotoAlt}"/> {block:Caption}{Caption}{/block:Caption} </div>
+                </li>
+                {/block:Photo}
+                
+                {block:Photoset}
+                <li class="in-view">
+                    <div>
+                        <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time>{block:Photos}  <img src="{PhotoURL-400}" alt="{PhotoAlt}"/> {block:Caption}{Caption}{/block:Caption}{/block:Photos} </div>
+                </li>
+                {/block:Photoset}
+                
+                {block:Video} 
+                <li class="in-view">
+                    <div>
+                        <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> {VideoEmbed-400} {block:Caption}{Caption}{/block:Caption} </div>
+                </li>
+                {/block:Video}
+                
             {/block:Posts}
         </ul>
     </section>
