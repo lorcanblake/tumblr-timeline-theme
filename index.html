@@ -232,6 +232,13 @@
                         <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> {VideoEmbed-400} {block:Caption}{Caption}{/block:Caption} </div>
                 </li>
                 {/block:Video}
+            
+                {block:Audio}
+                <li class="in-view">
+                    <div>
+                        <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> {AudioEmbed} {block:Caption}{Caption}{/block:Caption} </div>
+                </li>
+                {/block:Audio}
                 
             {/block:Posts}
         </ul>
