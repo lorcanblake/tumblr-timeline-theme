@@ -211,6 +211,13 @@
                         <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> {block:Title}<span class="title">{Title}</span> <br />{/block:Title}{Body} </div>
                 </li>
                 {/block:Text}
+            
+                {block:Quote} 
+                <li class="in-view">
+                    <div>
+                        <time><a href="{permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{ShortYear}</a></time> "{Quote}" <br />{block:Source}—{Source} {/block:Source} </div>
+                </li>
+                {/block:Quote}
                 
                 {block:Photo} 
                 <li class="in-view">
