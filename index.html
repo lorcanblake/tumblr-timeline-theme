@@ -248,6 +248,24 @@
                 {/block:Audio}
                 
             {/block:Posts}
+            
+            {block:Pagination}
+                <li class="in-view">
+                    <div>
+                          <time>
+                          
+                    {block:JumpPagination length="7"} 
+                  
+                    {block:CurrentPage}<a href="{URL}">{PageNumber}</a>{/block:CurrentPage}
+                    
+                    {block:JumpPage}<a href="{URL}">{PageNumber}</a>
+                    {/block:JumpPage}
+                    
+                    {/block:JumpPagination}
+                         </time>
+                    </div>
+                </li>
+            {/block:Pagination} 
         </ul>
     </section>
     <script type="text/javascript">
